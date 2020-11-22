@@ -5,5 +5,5 @@
  
 |#|project name| implementing |
 |--|--|--|
-|1|todo_list(https://github.com/maxzod/nest_explained/tree/master/todo-list)  | [controllers](https://docs.nestjs.com/controllers) - [providers](https://docs.nestjs.com/providers)- [modules](https://docs.nestjs.com/modules) |
+|1|[todo_list](https://github.com/maxzod/nest_explained/tree/master/todo-list)  | [controllers](https://docs.nestjs.com/controllers) - [providers](https://docs.nestjs.com/providers)- [modules](https://docs.nestjs.com/modules) |
 
