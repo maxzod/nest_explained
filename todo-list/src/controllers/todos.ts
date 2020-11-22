@@ -4,7 +4,7 @@ import { UpdateTodoDto } from 'src/dtos/todos/update.todo';
 import { TodoService } from '../services/app';
 
 @Controller()
-export class AppController {
+export class TodoController {
   constructor(private readonly todosServices: TodoService) { }
 
   @Post('todos')

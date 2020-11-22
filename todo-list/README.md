@@ -1,73 +1,46 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
-</p>
+![nest_js_logo](https://nestjs.com/img/logo_text.svg)
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+# Description
+REST API performing CRUD operations using nestjs framework 
+|#|Components| use cases|
+|--|--|--|
+|1|[controllers](controllers)|handling incoming **requests** and returning **responses** to the client.|
+|2|[providers](https://docs.nestjs.com/providers)|you can call it services for now and the framework will **provide** them to the controller.|
+|3|[modules](modules)|this Component is something like a glow between other Component it will connect the controller with other dependencies [providers] |
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+> quick tip : you can find postman JSON file inside root file of this project /postman_api
 
-## Description
+**starting tips**
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+ - In this example we won't use any database that's in future examples
+   for now we will use simple list inside **TodoService** to maintain
+   todos .
+   
+ - We will perform 5 operations 
+   [
+    Create Todo ,
+    Read One Todo && Read All Todos,
+    Update Todo,
+    Delete Todo
+    ];
+    
+### Responsibilities
+TodoService => maintaining todos and manipulating the todos list [add or get or remove] todos to and from it .
+CreateTodoDto / UpdateTodoDtop => To simplifythe code and write less boilerplate code while extracting the body params.
+TodoController => to handle incoming requests and decide which function to trigger and basing the request to it.
+TodoModule => To wire every thing togther so nest can work under the hood;
 
-## Installation
+### Explaining the process
+when the user fire up a request nest will receive it and base on the request route nest will pass it to the right controller 
+but in case of no matching controller nest will return response with 404 status code 
 
-```bash
-$ npm install
-```
+in case of matching controller nest will trigger the matching function and passing the request to it 
+for example a request sent to /todos with GET method;
+in our case  nest will trigger the function that was annotated with **GET** decorator inside the todos  **controller** also it wall base the matching dependencies to controller with no interference form you ;
 
-## Running the app
+now the **GET** function will perform some logic and simply pass the response tow the user as a return from the triggered function without warping it in any Response object or any thing nest will handle that for you;
 
-```bash
-# development
-$ npm run start
+> quick tip : every successful request will have 200 status code except post  it will return 201 status code but don't worry you can change the later using just one line or one Decorator to be accurate .
 
-# watch mode
-$ npm run start:dev
+that will be every thing , in the next example we will use other nest components to build better rest APIs
 
-# production mode
-$ npm run start:prod
-```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).

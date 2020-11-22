@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { AppController as TodoController } from '../controllers/todos';
+import { TodoController } from '../controllers/todos';
 import { TodoService } from '../services/app';
 
 @Module({
@@ -8,4 +8,4 @@ import { TodoService } from '../services/app';
   // providers: [],
   providers: [TodoService],
 })
-export class AppModule {}
+export class TodoModule {}
