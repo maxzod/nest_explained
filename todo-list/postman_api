@@ -1,0 +1,184 @@
+{
+	"info": {
+		"_postman_id": "23a23878-b5aa-47af-88ff-630c1fca5d27",
+		"name": "todos nest ",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create new todo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "value",
+							"value": "first todo",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/todos",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"todos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get todo by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/todos/2e8252c5-7426-4bda-a3e7-00fffd38b58f",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"todos",
+						"2e8252c5-7426-4bda-a3e7-00fffd38b58f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all todos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/todos",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"todos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update specific todo by id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "2e8252c5-7426-4bda-a3e7-00fffd38b58f",
+							"type": "text"
+						},
+						{
+							"key": "isChecked",
+							"value": "true",
+							"type": "text"
+						},
+						{
+							"key": "value",
+							"value": "now seceond is doneee",
+							"type": "text"
+						},
+						{
+							"key": "ss",
+							"value": "ss",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/todos/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"todos",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete todo by id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "2e8252c5-7426-4bda-a3e7-00fffd38b58f",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/todos",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"todos"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "7b819efe-84ca-409c-a5c7-965a52ce5173",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "67af4b42-1268-432a-8229-40dcd0744ba0",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "a6f79d79-bdae-4dcd-96d6-413187eb940f",
+			"key": "url",
+			"value": "localhost:3000"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
